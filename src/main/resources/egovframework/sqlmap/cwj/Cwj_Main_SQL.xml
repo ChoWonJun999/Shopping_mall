@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+<typeAlias alias="cwjMainVO" type="cwj.main.service.CwjMainVO" />
+	
+	<select id="cwjMainDAO.selectCwjMainMenuList" parameterClass="cwjMainVO" resultClass="cwjMainVO">
+	/* cwjMainDAO.selectCwjMainMenuList */
+		SELECT
+			a_menu_key				AS aMenuKey
+			, a_menu_number			AS aMenuNumber
+			, a_menu_name			AS aMenuName
+			, a_menu_visible_state	AS aMenuVisibleState
+		FROM a_menu am
+		ORDER BY a_menu_number
+	</select>
+</sqlMap>

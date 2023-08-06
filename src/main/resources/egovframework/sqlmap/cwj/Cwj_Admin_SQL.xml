@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="cwjAdminVO" type="cwj.admin.service.CwjAdminVO" />
+	
+	<select id="cwjAdminDAO.selectCwjAdminMenuList" parameterClass="cwjAdminVO" resultClass="cwjAdminVO">
+	/* cwjAdminDAO.selectCwjAdminMenuList */
+		SELECT
+			a_menu_key				AS aMenuKey
+			, a_menu_number			AS aMenuNumber
+			, a_menu_name			AS aMenuName
+			, a_menu_visible_state	AS aMenuVisibleState
+		FROM a_menu am
+		ORDER BY a_menu_number
+	</select>
+	
+	<update id="cwjAdminDAO.updateCwjAdminMenuList" parameterClass="cwjAdminVO">
+	/* cwjAdminDAO.updateCwjAdminMenuList */
+		UPDATE a_menu
+		SET
+			a_menu_number = #aMenuNumber#
+			, a_menu_name = #aMenuName#
+			, a_menu_visible_state = #aMenuVisibleState#
+		WHERE a_menu_key = #aMenuKey#
+	</update>
+	
+	<select id="cwjAdminDAO.selectCwjAdminMenuSubList" parameterClass="cwjAdminVO" resultClass="cwjAdminVO">
+	/* cwjAdminDAO.selectCwjAdminMenuSubList */
+		SELECT
+			a_menu_sub_key					AS aMenuSubKey
+			, a_menu_key					AS aMenuKey
+			, a_menu_sub_number				AS aMenuSubNumber
+			, a_menu_sub_name				AS aMenuSubName
+			, a_menu_sub_visible_state		AS aMenuSubVisibleState
+		FROM a_menu_sub amb
+		ORDER BY a_menu_sub_number
+	</select>
+	
+	<insert id="cwjAdminDAO.updateCwjAdminMenuSubList" parameterClass="cwjAdminVO">
+	/* cwjAdminDAO.updateCwjAdminMenuSubList */
+		INSERT INTO a_menu_sub(
+			a_menu_sub_key
+			, a_menu_key
+			, a_menu_sub_number
+			, a_menu_sub_name
+			, a_menu_sub_visible_state
+		)VALUES(
+			IF(#aMenuSubKey#='', (SELECT IFNULL(MAX(sub.a_menu_sub_key), 0)+1 FROM a_menu_sub sub), #aMenuSubKey#)
+			, #aMenuKey#
+			, #aMenuSubNumber#
+			, #aMenuSubName#
+			, #aMenuSubVisibleState#
+		)
+		ON DUPLICATE KEY UPDATE 
+			a_menu_sub_number = #aMenuSubNumber#
+			, a_menu_sub_name = #aMenuSubName#
+			, a_menu_sub_visible_state = #aMenuSubVisibleState#
+	</insert>
+	
+</sqlMap>

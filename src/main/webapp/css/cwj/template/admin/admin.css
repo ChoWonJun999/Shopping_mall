@@ -1,0 +1,519 @@
+@charset "utf-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.memo {
+	color: red;
+	font-weight: 700;
+}
+
+/* 프로젝트 기본스타일 */
+html {
+	display: block;
+	/* 드래그 불가 */
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+div {
+	width: 100%;
+	min-height: 10px;
+	text-align: center;
+}
+
+body, p, ul, ol, li, dl, dt, dd, form, table, th, td, fieldset, input,
+	textarea, select, button, pre {
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: none;
+	font-weight: 400;
+	min-height: 0px;
+}
+
+body, input, textarea, select, button {
+	margin: 0;
+	padding: 0;
+	font-family: "Noto Sans KR", "Malgun Gothic", "맑은고딕", "Nanum Gothic",
+		"나눔고딕", "돋움", "굴림";
+	min-height: 0px;
+}
+
+ul, li, ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	min-height: 0px;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+	word-break: keep-all;
+	min-height: 0px;
+}
+
+b {
+	font-weight: 800;
+	min-height: 0px;
+}
+/* 아이폰 가로모드 글자 크기 확대 방지: -webkit-text-size-adjust:none; */
+header, footer, nav, aside, section, article {
+	display: block;
+	min-height: 0px;
+}
+
+fieldset, img {
+	border: 0;
+	min-height: 0px;
+	width: 27px;
+	float: left;
+}
+
+img {
+	-ms-interpolation-mode: bicubic !important;
+	border: 0;
+}
+
+table {
+	padding: 0;
+	border-spacing: 0px;
+	border: 0;
+	border-collapse: collapse;
+}
+
+h1, h2 {
+	font-size: 25pt;
+	margin: 0;
+	color: #314453;
+}
+
+/* input */
+select, textarea {
+	margin: 0;
+	color: #333;
+	border: 1px solid #cccccc;
+}
+
+textarea {
+	resize: vertical;
+	width: 100%;
+	height: 100%;
+}
+
+input[type="text"], input[type="password"] {
+	font-size: 11pt;
+	vertical-align: bottom;
+	margin: 0;
+	height: 30px;
+	color: #565656;
+	/* 	border: 1px solid #cccccc; */
+	width: 90%;
+	text-align: center;
+	border: none;
+	float: right;
+}
+
+select {
+	padding: 0;
+	height: 32px !important;
+}
+
+input:not ([type] ), input[type="email" i], input[type="number" i],
+	input[type="password" i], input[type="tel" i], input[type="url" i],
+	input[type="text" i] {
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+
+/* 스크롤스타일 */
+/* Chrome, Safari용 스크롤 바 */
+.head_foot::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	border: 3px solid #2c3f6a;
+}
+
+.head_foot::-webkit-scrollbar-button:start:decrement, .head_foot::-webkit-scrollbar-button:end:increment
+	{
+	display: block;
+	height: 10px;
+	background: #2c3f6a;
+}
+
+.head_foot::-webkit-scrollbar-track {
+	background: #2c3f6a;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+.head_foot::-webkit-scrollbar-thumb {
+	height: 50px;
+	width: 50px;
+	background: rgb(20, 85, 167);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+/* 모바일 */
+@media all and(max-width:320px) {
+	select {
+		height: 37px !important;
+		padding: 0;
+	}
+	input[type="text"], input[type="password"] {
+		margin: 0;
+		height: 32px !important;
+		color: #565656;
+	}
+}
+
+@media all and (min-width:320px) and(max-width:640px) {
+	select {
+		height: 32px !important;
+		padding: 0;
+	}
+	input[type="text"], input[type="password"] {
+		margin: 0;
+		height: 32px !important;
+		color: #565656;
+	}
+}
+
+@media all and (min-width:640px) and (max-width:1024px) {
+	select {
+		height: 35px !important;
+		padding: 0;
+	}
+	input[type="text"], input[type="password"] {
+		margin: 0;
+		height: 32px !important;
+		color: #565656;
+	}
+}
+
+@media all and (min-width:1024px) and (max-width:1366px) {
+	input[type="text"], input[type="password"] {
+		margin: 0;
+		height: 32px !important;
+		color: #565656;
+	}
+}
+
+@media all and (min-width:1366px) and (max-width:1450px) {
+}
+
+/* mainLayout */
+.lay {
+	
+}
+
+.con {
+	width: 1300px;
+	margin: 0 auto;
+}
+
+/* header */
+#header_lay {
+	height: 160px;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	background: white;
+}
+
+.head_head {
+	height: 70px;
+}
+
+.head_right {
+	height: 20px;
+	background-color: #ffffff;
+}
+
+.head_right_user {
+	text-align: center;
+}
+
+.head_right_user>li {
+	padding-right: 0.5em;
+	font-size: 6pt;
+	font-weight: 500;
+	vertical-align: bottom;
+	height: 100%;
+	float: right;
+}
+
+.head_right_user>li>span {
+	vertical-align: bottom;
+	line-height: 2;
+}
+
+.head_right_user>li>a {
+	vertical-align: bottom;
+	line-height: 2;
+}
+
+/* 메뉴스크롤바 없애기 */
+.head_foot::-webkit-scrollbar {
+	display: none;
+	-ms-overflow-style: none;
+}
+
+/* 메뉴 */
+.head_foot {
+	height: 68px;
+	float: right;
+	overflow-x: hidden;
+	border: 1px solid #e5e5e5;
+}
+
+.head_foot>.head_foot_menu {
+	text-align: center;
+}
+
+.head_foot>.head_foot_menu>li {
+	margin: 0;
+	float: left;
+	line-height: 4.5;
+	list-style: none;
+	display: block;
+}
+
+.head_foot>.head_foot_menu>li>a {
+	letter-spacing: 2px;
+	text-decoration: none;
+	font-size: 11pt;
+	display: block;
+	text-align: center;
+	padding: 0em 1em;
+}
+
+.head_foot>.head_foot_menu>li>a.move {
+	font-weight: 500;
+	background: #4169a1;
+}
+
+.head_foot_menu_sub {
+	width: 100%;
+	background: #dadde1;
+	position: absolute;
+	left: 0;
+}
+
+.head_foot_menu_sub li {
+	float: left;
+}
+
+.head_foot_menu_sub li a {
+	padding: 0em 1em;
+	font-size: 10pt;
+}
+
+.head_foot_menu_sub .over {
+	color: #fff;
+}
+
+.head_foot_menu_sub .over a {
+	letter-spacing: 2px;
+	color: #333;
+	width: 100%;
+	text-align: center;
+}
+
+.head_foot_menu_sub .hover {
+	
+}
+
+.head_foot_menu_sub .hover a {
+	color: #4169a1;
+	font-size: 11pt;
+	width: 100%;
+	letter-spacing: 2px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.head_foot_menu li:nth-child(1)>.head_foot_menu_sub {
+	padding-left: 200px;
+}
+
+.head_foot_menu li:nth-child(2)>.head_foot_menu_sub {
+	padding-left: 200px;
+}
+
+.head_foot_menu li:nth-child(3)>.head_foot_menu_sub {
+	padding-left: 220px;
+}
+
+.head_foot_menu li:nth-child(4)>.head_foot_menu_sub {
+	padding-left: 450px;
+}
+
+.head_foot_menu li:nth-child(5)>.head_foot_menu_sub {
+	padding-left: 400px;
+}
+
+.head_foot_menu li:nth-child(6)>.head_foot_menu_sub {
+	padding-left: 500px;
+}
+
+.head_foot_menu li:nth-child(7)>.head_foot_menu_sub {
+	padding-left: 700px;
+}
+
+.head_foot_menu li:nth-child(8)>.head_foot_menu_sub {
+	padding-left: 650px;
+}
+
+.head_foot_menu li:nth-child(9)>.head_foot_menu_sub {
+	padding-left: 800px;
+}
+
+.head_foot_menu li:nth-child(10)>.head_foot_menu_sub {
+	padding-left: 500px;
+}
+
+.head_foot_menu li:nth-child(11)>.head_foot_menu_sub {
+	padding-left: 500px;
+}
+
+/* footer */
+#footer_lay {
+	height: 110px;
+	bottom: 10px;
+	text-align: center;
+	font-size: 10px;
+}
+
+#container_lay {
+	min-height: 0px;
+	margin-top: 160px;
+	text-align: left;
+}
+
+form {
+	width: 1300px;
+	margin: 0 auto;
+}
+
+.lf_np_table table {
+	cursor: default;
+	width: 100%;
+	background-color: #fff;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.lf_np_table table tr {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.lf_np_table table th, td {
+	font-weight: unset;
+	padding-right: 10px;
+	padding-left: 25px;
+}
+
+.lf_np_table table th {
+	border: 1px solid #fff;
+	font-size: 18px;
+	padding-top: 17px;
+	padding-bottom: 13px;
+	color: #ddd;
+	background-color: #333;
+}
+
+.lf_np_table table td {
+	padding-top: 11px;
+	padding-bottom: 7px;
+}
+
+.lf_np_table table td pre {
+	font-size: 15px;
+	white-space: pre-wrap;
+}
+
+.lf_np_table table td:hover {
+	background-color: #8c99f8;
+	color: #fff;
+}
+
+.lf_np_table table td:hover label, .lf_np_table table td:hover input, .lf_np_table table td:hover img,
+	.lf_np_table table td:hover a {
+	background-color: #8c99f8;
+	color: #fff;
+}
+
+.ta_rc_hov {
+	background-color: #f2f2f2;
+}
+
+.ta_head_hov {
+	background-color: #484848;
+}
+
+table .td_str {
+	text-align: left;
+	padding-left: 30px;
+}
+
+table .td_num {
+	text-align: right;
+	padding-right: 3px;
+}
+
+.nav_select {
+	width: 10%;
+	font-size: 20px;
+	color: #333;
+}
+
+.unit {
+	color: #999;
+}
+
+.lf_title {
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid;
+}
+
+.lf_table_caption {
+	text-align: right;
+	padding: 5px 0px;
+	font-size: 5px;
+}
+
+.lf_table_caption a {
+	padding-right: 10px;
+}
+
+.lf_table_bottom_right {
+	text-align: right;
+}
+
+.bottom_btn {
+	padding: 0px 10px;
+	border: 1px solid;
+	border-radius: 15px;
+}
+
+.bottom_btn:hover {
+	background-color: #f2f2f2;
+}
+
+.dwonRightIcon{
+	padding-left: 30px;
+}
